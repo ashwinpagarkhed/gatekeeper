@@ -1,5 +1,5 @@
 # gatekeeper
-This runs JMeter tests in a Docker container for performance testing and gives artifacts as api kpi's
+This runs JMeter tests in a Docker container for performance testing and gives artifacts in azure devops pipeline as a api's metrics
 run.sh file that launches the Docker image and runs the tests
 test.sh file for each JMeter test plan – this just calls run.sh passing in the test plan and any parameters
 
