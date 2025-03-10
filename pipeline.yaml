@@ -1,0 +1,20 @@
+trigger: none
+
+jobs:
+- job: jmeter
+  pool:
+    vmImage: ubuntu-latest
+  displayName: Run JMeter tests
+  steps:
+  - task: Bash@3
+    displayName: Execute JMeter tests
+    inputs:
+      targetType: filePath
+      filePath: 'jmeter/test.sh'
+      arguments: '$PWD $(filename) $(host) $(rampUpPeriod) $(timeDuration) $(threads) $(tenantId)'
+      workingDirectory: jmeter
+  - task: PublishPipelineArtifact@1
+    displayName: Publish JMeter Report
+    inputs:
+      targetPath: jmeter/report
+      artifact: jmeter
